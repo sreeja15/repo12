@@ -49,7 +49,8 @@ stages:
                         scriptType: 'bash'
                         scriptLocation: 'inlineScript'
                         inlineScript: |
-                                      sudo su
+                                      su -c 'sh -s' <<EOF
                                       chmod +x blue-green-weightage.sh
                                       chmod 777 /home/ubuntu/.azure/az.sess
                                       /bin/bash /opt/Blue-Green-Deployment/scripts/blue-green-weightage.sh
+                                      EOF
