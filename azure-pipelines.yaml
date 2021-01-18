@@ -23,7 +23,7 @@ stages:
                                                   azureSubscription: 'Visual Studio Enterprise Subscription (246fe5c5-8e9a-444e-bcba-80d2ef05b06f)'
                                                   scriptType: 'bash'
                                                   scriptLocation: 'inlineScript'
-                                                  inlineScript: 'sudo az storage blob download --container-name "application-container" --account-name "mydemoaccount001" --file "/opt/Blue-Green-Deployment" --name "Blue-Green-Deployment.zip" --connection-string "DefaultEndpointsProtocol=https;AccountName=mydemoaccount001;AccountKey=tyC2Xc9EJbpogOmSLzQMhwNI8hvAR8X55NoDs78o0dkdPdErdbmNOFMUr4YzLZIaZNbss5neohzjtayJC70Mqg==;EndpointSuffix=core.windows.net"'
+                                                  inlineScript: 'sudo az storage blob download --container-name "application-container" --account-name "mydemoaccount001" --file "/home/ubuntu/Blue-Green-Deployment" --name "Blue-Green-Deployment.zip" --connection-string "DefaultEndpointsProtocol=https;AccountName=mydemoaccount001;AccountKey=tyC2Xc9EJbpogOmSLzQMhwNI8hvAR8X55NoDs78o0dkdPdErdbmNOFMUr4YzLZIaZNbss5neohzjtayJC70Mqg==;EndpointSuffix=core.windows.net"'
                             echo "Extracting the source code and setting up the application to the Azure VM..."
   - stage: Deploy_TM
     displayName: TM update weight stage
@@ -52,5 +52,5 @@ stages:
                                       su -c 'sh -s' <<EOF
                                       chmod +x blue-green-weightage.sh
                                       chmod 777 /home/ubuntu/.azure/az.sess
-                                      /bin/bash /opt/Blue-Green-Deployment/scripts/blue-green-weightage.sh
+                                      /bin/bash /home/ubuntu/Blue-Green-Deployment/scripts/blue-green-weightage.sh
                                       EOF
