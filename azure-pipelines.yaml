@@ -35,7 +35,7 @@ stages:
       pool:
         vmImage: 'Ubuntu-18.04'
       environment:
-        name: Development
+        name: poc
         resourceType: VirtualMachine
         tags: green
       strategy:
