@@ -50,6 +50,5 @@ stages:
                         scriptLocation: 'inlineScript'
                         inlineScript: |
                                       sudo su
-                                      cd /home/ubuntu/Blue-Green-Deployment
                                       chmod +x blue-green-weightage.sh
                                       /bin/bash /home/ubuntu/Blue-Green-Deployment/scripts/blue-green-weightage.sh
