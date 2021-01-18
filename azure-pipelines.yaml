@@ -23,7 +23,7 @@ stages:
                     scriptLocation: 'inlineScript'
                     inlineScript: |
                                   sudo su
-                                  az storage blob download --container-name "application-container" --account-name "mydemoaccount001" --file "/opt/Blue-Green-Deployment" --name "Blue-Green-Deployment.zip.zip" --connection-string "DefaultEndpointsProtocol=https;AccountName=mydemoaccount001;AccountKey=tyC2Xc9EJbpogOmSLzQMhwNI8hvAR8X55NoDs78o0dkdPdErdbmNOFMUr4YzLZIaZNbss5neohzjtayJC70Mqg==;EndpointSuffix=core.windows.net"'
+                                  az storage blob download --container-name "application-container" --account-name "mydemoaccount001" --file "/home/Blue-Green-Deployment" --name "Blue-Green-Deployment.zip.zip" --connection-string "DefaultEndpointsProtocol=https;AccountName=mydemoaccount001;AccountKey=tyC2Xc9EJbpogOmSLzQMhwNI8hvAR8X55NoDs78o0dkdPdErdbmNOFMUr4YzLZIaZNbss5neohzjtayJC70Mqg==;EndpointSuffix=core.windows.net"'
   - stage: Deploy_TM
     displayName: TM update weight stage
     jobs:
@@ -42,4 +42,4 @@ stages:
           deploy:
             steps:
             - script: |
-                /bin/bash /home/ubuntu/Blue-Green-Deployment/scripts/blue-green-weightage.sh
+                /bin/bash /home/Blue-Green-Deployment/scripts/blue-green-weightage.sh
