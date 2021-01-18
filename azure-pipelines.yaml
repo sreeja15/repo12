@@ -43,9 +43,10 @@ stages:
           deploy:
             steps:
             - script: |
-                /bin/bash /home/ubuntu/- task: AzureCLI@2
-                                         inputs:
-                                              azureSubscription: 'Visual Studio Enterprise Subscription (246fe5c5-8e9a-444e-bcba-80d2ef05b06f)'
-                                              scriptType: 'bash'
-                                              scriptLocation: 'scriptPath'
-                                              scriptPath: 'Blue-Green-Deployment/scripts/blue_green_weightage.sh'
+                /bin/bash /home/ubuntu/Blue-Green-Deployment/scripts/- task: AzureCLI@2
+                                                                       inputs:
+                                                                              azureSubscription: 'Visual Studio Enterprise Subscription (246fe5c5-8e9a-444e-bcba-80d2ef05b06f)'
+                                                                              scriptType: 'bash'
+                                                                              scriptLocation: 'scriptPath'
+                                                                              scriptPath: '/Blue-Green-Deployment/scripts/blue_green_weightage.sh'
+                                                                              arguments: 'chmod +x blue_green_weightage.sh'
