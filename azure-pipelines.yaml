@@ -21,7 +21,7 @@ stages:
                     azureSubscription: 'Visual Studio Enterprise Subscription (246fe5c5-8e9a-444e-bcba-80d2ef05b06f)'
                     scriptType: 'bash'
                     scriptLocation: 'inlineScript'
-                    inlineScript: ' sudo az storage blob download --container-name "application-container" --account-name "mydemoaccount001" --file "Blue-Green-Deployment.zip" --name "Blue-Green-Deployment.zip.zip" --connection-string "DefaultEndpointsProtocol=https;AccountName=mydemoaccount001;AccountKey=tyC2Xc9EJbpogOmSLzQMhwNI8hvAR8X55NoDs78o0dkdPdErdbmNOFMUr4YzLZIaZNbss5neohzjtayJC70Mqg==;EndpointSuffix=core.windows.net"'
+                    inlineScript: ' sudo su;az storage blob download --container-name "application-container" --account-name "mydemoaccount001" --file "Blue-Green-Deployment.zip" --name "Blue-Green-Deployment.zip.zip" --connection-string "DefaultEndpointsProtocol=https;AccountName=mydemoaccount001;AccountKey=tyC2Xc9EJbpogOmSLzQMhwNI8hvAR8X55NoDs78o0dkdPdErdbmNOFMUr4YzLZIaZNbss5neohzjtayJC70Mqg==;EndpointSuffix=core.windows.net"'
   - stage: Deploy_TM
     displayName: TM update weight stage
     jobs:
