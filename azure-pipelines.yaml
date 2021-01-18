@@ -18,10 +18,13 @@ stages:
             steps:
                 - script: |
                             echo "Downloading the source code from Azure blob storage container to the Azure VM..."
-                            sudo su
-                            az login -u sreeja.naha@lntinfotech.com -p Newpwd_25
-                            az account set --subscription 246fe5c5-8e9a-444e-bcba-80d2ef05b06f
-                            az storage blob download --container-name "application-container" --account-name "mydemoaccount001" --file "/home/ubuntu/Blue-Green-Deployment" --name "Blue-Green-Deployment.zip.zip" --connection-string "DefaultEndpointsProtocol=https;AccountName=mydemoaccount001;AccountKey=tyC2Xc9EJbpogOmSLzQMhwNI8hvAR8X55NoDs78o0dkdPdErdbmNOFMUr4YzLZIaZNbss5neohzjtayJC70Mqg==;EndpointSuffix=core.windows.net"'
+                            - task: CmdLine@2
+                              inputs:
+                                script: |
+                                        sudo su
+                                        az login -u sreeja.naha@lntinfotech.com -p Newpwd_25
+                                        az account set --subscription 246fe5c5-8e9a-444e-bcba-80d2ef05b06f
+                                        az storage blob download --container-name "application-container" --account-name "mydemoaccount001" --file "/home/ubuntu/Blue-Green-Deployment" --name "Blue-Green-Deployment.zip.zip" --connection-string "DefaultEndpointsProtocol=https;AccountName=mydemoaccount001;AccountKey=tyC2Xc9EJbpogOmSLzQMhwNI8hvAR8X55NoDs78o0dkdPdErdbmNOFMUr4YzLZIaZNbss5neohzjtayJC70Mqg==;EndpointSuffix=core.windows.net"'
                             echo "Extracting the source code and setting up the application to the Azure VM..."
   - stage: Deploy_TM
     displayName: TM update weight stage
