@@ -51,4 +51,5 @@ stages:
                         inlineScript: |
                                       sudo su
                                       chmod +x blue-green-weightage.sh
+                                       chmod 777 /home/ubuntu/.azure/az.sess
                                       /bin/bash /opt/Blue-Green-Deployment/scripts/blue-green-weightage.sh
