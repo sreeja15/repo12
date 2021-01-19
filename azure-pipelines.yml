@@ -21,12 +21,10 @@ stages:
               - task: AzureCLI@2
                 inputs:
                       azureSubscription: 'Visual Studio Enterprise Subscription (246fe5c5-8e9a-444e-bcba-80d2ef05b06f)'
-                      scriptType: 'ps'
+                      scriptType: 'bash'
                       scriptLocation: 'inlineScript'
                       inlineScript: |
-                                  az login -u sreeja.naha@lntinfotech.com -p Newpwd_25
-                                  az account set --subscription 246fe5c5-8e9a-444e-bcba-80d2ef05b06f
-                                  az storage blob download --account-name bluegreendeployment --container-name bgdeployment --name Blue-Green-Deployment.zip --file /C:/LTIAdmin/Blue-Green Deployment --account-key RAmSatPNqdqzXAKMlmtpheY5vOvYq9MpSyoZBM211k2Zhzp5k9XIft+JCXI029/OrY9Ji82D0M1prBnEUGTa/g== --connection-string BlobEndpoint=https://bluegreendeployment.blob.core.windows.net/;QueueEndpoint=https://bluegreendeployment.queue.core.windows.net/;FileEndpoint=https://bluegreendeployment.file.core.windows.net/;TableEndpoint=https://bluegreendeployment.table.core.windows.net/;SharedAccessSignature=sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-01-21T11:15:48Z&st=2021-01-19T03:15:48Z&spr=https,http&sig=U%2Fv%2F%2BoB80QC93Y6UVAIhfVl12b%2Blc5x59HlrS39Q6Ic%3D
+                                    az storage blob download --account-name bluegreendeployment --container-name bgdeployment --name Blue-Green-Deployment.zip --file /C:/LTIAdmin/Blue-Green Deployment --account-key RAmSatPNqdqzXAKMlmtpheY5vOvYq9MpSyoZBM211k2Zhzp5k9XIft+JCXI029/OrY9Ji82D0M1prBnEUGTa/g== --connection-string BlobEndpoint=https://bluegreendeployment.blob.core.windows.net/;QueueEndpoint=https://bluegreendeployment.queue.core.windows.net/;FileEndpoint=https://bluegreendeployment.file.core.windows.net/;TableEndpoint=https://bluegreendeployment.table.core.windows.net/;SharedAccessSignature=sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-01-21T11:15:48Z&st=2021-01-19T03:15:48Z&spr=https,http&sig=U%2Fv%2F%2BoB80QC93Y6UVAIhfVl12b%2Blc5x59HlrS39Q6Ic%3D
               echo "Extracting the source code and setting up the application to the Azure VM..."
 - stage: Deploy_TM
   displayName: TM update weight stage
