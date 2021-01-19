@@ -52,5 +52,5 @@ stages:
                           scriptType: 'bash'
                           scriptLocation: 'inlineScript'
                           inlineScript:|
-                                        /bin/bash /opt/Blue-Green-Deployment/scripts/blue-green-weightage.sh
+                                        sudo /bin/bash /opt/Blue-Green-Deployment/scripts/blue-green-weightage.sh
                                       
