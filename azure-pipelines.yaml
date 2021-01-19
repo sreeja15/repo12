@@ -45,11 +45,5 @@ stages:
           deploy:
             steps:
             - script: |
-                - task: AzureCLI@2
-                  inputs:
-                          azureSubscription: 'Visual Studio Enterprise Subscription (246fe5c5-8e9a-444e-bcba-80d2ef05b06f)'
-                          scriptType: 'bash'
-                          scriptLocation: 'inlineScript'
-                          inlineScript:|
-                                        sudo /bin/bash ~/Blue-Green-Deployment/scripts/blue-green-weightage.sh
+                        bash ~/Blue-Green-Deployment/scripts/blue-green-weightage.sh
                                       
