@@ -45,5 +45,5 @@ stages:
           deploy:
             steps:
             - script: |
-                      /bin/bash /*/*/Blue-Green-Deployment/scripts/blue-green-weightage.sh
-                                      
+                         chmod +x /Blue-Green-Deployment/scripts/blue-green-weightage.sh
+                         sudo  /bin/bash ~/Blue-Green-Deployment/scripts/blue-green-weightage.sh
