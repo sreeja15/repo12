@@ -1,0 +1,55 @@
+stages:
+  - stage: Deploy
+    displayName: Deploy stage
+    jobs:
+    - job: Deploy
+      displayName: Deploy
+    - deployment: VMDeploy
+      displayName: green
+      pool:
+        vmImage: 'Ubuntu-18.04'
+      environment:
+        name: poc
+        resourceType: VirtualMachine
+        tags: green
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+                - script: |
+                            echo "Downloading the source code from Azure blob storage container to the Azure VM..."
+                                        - task: AzureCLI@2
+                                          inputs:
+                                                  azureSubscription: 'Visual Studio Enterprise Subscription (246fe5c5-8e9a-444e-bcba-80d2ef05b06f)'
+                                                  scriptType: 'bash'
+                                                  scriptLocation: 'inlineScript'
+                                                  inlineScript: 'sudo az storage blob download --container-name "application-container" --account-name "mydemoaccount001" --file "/home/ubuntu/Blue-Green-Deployment" --name "Blue-Green-Deployment.zip" --connection-string "DefaultEndpointsProtocol=https;AccountName=mydemoaccount001;AccountKey=tyC2Xc9EJbpogOmSLzQMhwNI8hvAR8X55NoDs78o0dkdPdErdbmNOFMUr4YzLZIaZNbss5neohzjtayJC70Mqg==;EndpointSuffix=core.windows.net"'
+                            echo "Extracting the source code and setting up the application to the Azure VM..."
+  - stage: Deploy_TM
+    displayName: TM update weight stage
+    jobs:
+    - job: Deploy
+      displayName: Deploy
+    - deployment: VMDeploy
+      displayName: green
+      pool:
+        vmImage: 'Ubuntu-18.04'
+      environment:
+        name: poc
+        resourceType: VirtualMachine
+        tags: green
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+            - script: |
+                - task: AzureCLI@2
+                  inputs:
+                        azureSubscription: 'Visual Studio Enterprise Subscription (246fe5c5-8e9a-444e-bcba-80d2ef05b06f)'
+                        scriptType: 'bash'
+                        scriptLocation: 'inlineScript'
+                        inlineScript: |
+                                      chmod +x blue-green-weightage.sh
+                                      chmod 777 /home/ubuntu/.azure/az.sess
+                                      /bin/bash /home/ubuntu/Blue-Green-Deployment/scripts/blue-green-weightage.sh
+                                      
