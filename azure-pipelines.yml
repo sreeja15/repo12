@@ -18,7 +18,7 @@ stages:
           steps:
           - script: |
               echo "Downloading the source code from Azure blob storage container to the Azure VM..."
-              - task: CmdLine@2
+              - task: bash
                 inputs:
                     script: |
                               az login -u sreeja.naha@lntinfotech.com -p Newpwd_25
