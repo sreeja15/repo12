@@ -9,7 +9,7 @@ stages:
     pool:
       vmImage: 'Windows server 2019 Datacenter'
     environment:
-      name: poc
+      name: dev
       resourceType: VirtualMachine
       tags: green
     strategy:
@@ -39,7 +39,7 @@ stages:
     pool:
       vmImage: 'Windows server 2019 Datacenter'
     environment:
-      name: Development
+      name: dev
       resourceType: VirtualMachine
       tags: green
     strategy:
