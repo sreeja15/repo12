@@ -7,7 +7,7 @@ stages:
   - deployment: VMDeploy
     displayName: green
     pool:
-      vmImage: 'Windows server 2019 Datacenter'
+      vmImage: 'windows-2019'
     environment:
       name: dev
       resourceType: VirtualMachine
@@ -32,7 +32,7 @@ stages:
   - deployment: VMDeploy
     displayName: green
     pool:
-      vmImage: 'Windows server 2019 Datacenter'
+      vmImage: 'windows-2019'
     environment:
       name: dev
       resourceType: VirtualMachine
@@ -49,8 +49,8 @@ stages:
                               scriptType: 'bash'
                               scriptLocation: 'inlineScript'
                               inlineScript: |
-                                            
-                                            /bin/bash /C:/LTIAdmin/Blue-Green-Deployment/scripts/blue-green-weightage.sh
                                             chmod +x blue-green-weightage.sh
+                                            C:\Windows\System32\bash.exe -c "./C:/LTIAdmin/Blue-Green-Deployment/scripts/blue-green-weightage.sh"
+                                            
                                         
               
