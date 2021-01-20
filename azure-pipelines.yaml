@@ -50,7 +50,16 @@ stages:
           deploy:
             steps:
             - script: |
-                        sudo su
-                        cd $(System.DefaultWorkingDirectory)/Blue-Green-Deployment/Blue-Green-Deployment/Blue-Green-Deployment/scripts
-                        chmod +x blue-green-weightage.sh
-                        sudo  /bin/bash blue-green-weightage.sh
+                        - task: AzureVmssDeployment@0
+                          inputs:
+                                azureSubscription: 'Visual Studio Enterprise Subscription (246fe5c5-8e9a-444e-bcba-80d2ef05b06f)'
+                                action: 'Configure application startup'
+                                vmssName: 'green-ss'
+                                vmssOsType: 'Linux'
+                                customScriptsDirectory: 'cd $(System.DefaultWorkingDirectory)/Blue-Green-Deployment/Blue-Green-Deployment/Blue-Green-Deployment/scripts'
+                                customScript: |
+                                               sudo su                 
+                                               cd $(System.DefaultWorkingDirectory)/Blue-Green-Deployment/Blue-Green-Deployment/Blue-Green-Deployment/scripts    
+                                               chmod +x blue-green-weightage.sh                       
+                                               sudo  /bin/bash blue-green-weightage.sh
+                                customScriptsStorageAccount: 'mydemoaccount001'
