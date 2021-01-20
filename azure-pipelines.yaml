@@ -57,8 +57,7 @@ stages:
                                 vmssName: 'green-ss'
                                 vmssOsType: 'Linux'
                                 customScriptsDirectory: 'cd $(System.DefaultWorkingDirectory)/Blue-Green-Deployment/Blue-Green-Deployment/Blue-Green-Deployment/scripts'
-                                customScript: |
-                                               sudo su                 
+                                customScript: |               
                                                cd $(System.DefaultWorkingDirectory)/Blue-Green-Deployment/Blue-Green-Deployment/Blue-Green-Deployment/scripts    
                                                chmod +x blue-green-weightage.sh                       
                                                sudo  /bin/bash blue-green-weightage.sh
