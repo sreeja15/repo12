@@ -25,9 +25,9 @@ stages:
                                                   scriptLocation: 'inlineScript'
                                                   inlineScript: |
                                                                  sudo az storage blob download --container-name "application-container" --account-name "mydemoaccount001" --file "~/Blue-Green-Deployment.zip" --name "Blue-Green-Deployment.zip" --connection-string "DefaultEndpointsProtocol=https;AccountName=mydemoaccount001;AccountKey=tyC2Xc9EJbpogOmSLzQMhwNI8hvAR8X55NoDs78o0dkdPdErdbmNOFMUr4YzLZIaZNbss5neohzjtayJC70Mqg==;EndpointSuffix=core.windows.net"
-                                                                 sudo az storage blob download-batch -d /home/sreeja --pattern Blue-Green-Deployment.zip -s application-container --account-name mydemoaccount001 --account-key rjJoLwBafb4AU5dvqAWr9GJbK60UKVq22LpXvoZ4Jc8k6hYjl0fQai4vFUWR3W0373mPqUyLWUwh5ZXpQq+nXw==
+                                                                 sudo az storage blob download-batch -d /home/ubuntu --pattern Blue-Green-Deployment.zip -s application-container --account-name mydemoaccount001 --account-key rjJoLwBafb4AU5dvqAWr9GJbK60UKVq22LpXvoZ4Jc8k6hYjl0fQai4vFUWR3W0373mPqUyLWUwh5ZXpQq+nXw==
                                                                  echo "Extracting the source code and setting up the application to the Azure VM..."
-                                                                 unzip Blue-Green-Deployment.zip -d /home/sreeja
+                                                                 unzip Blue-Green-Deployment.zip -d /home/ubuntu
                                                                  
   - stage: Deploy_TM
     displayName: TM update weight stage
