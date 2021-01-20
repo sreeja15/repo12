@@ -51,7 +51,9 @@ stages:
             steps:
             - script: |
                         
-                        cd $(System.DefaultWorkingDirectory)/Blue-Green-Deployment/Blue-Green-Deployment/Blue-Green-Deployment/scripts    
-                        chmod +x blue-green-weightage.sh                       
+                        cd $(System.DefaultWorkingDirectory)/Blue-Green-Deployment/Blue-Green-Deployment/scripts    
+                        chmod +x blue-green-weightage.sh 
+                        sudo az login -u sreeja.naha@lntinfotech.com -p Newpwd_25
+                        az account set --subscription 246fe5c5-8e9a-444e-bcba-80d2ef05b06f                      
                         sudo  /bin/bash blue-green-weightage.sh
                                
