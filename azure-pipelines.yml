@@ -27,6 +27,7 @@ stages:
 
                                                                  sudo su
                                                                  sudo az storage blob download-batch -d $(System.DefaultWorkingDirectory) --pattern Blue-Green-Deployment.zip -s application-container --account-name mydemoaccount001 --account-key rjJoLwBafb4AU5dvqAWr9GJbK60UKVq22LpXvoZ4Jc8k6hYjl0fQai4vFUWR3W0373mPqUyLWUwh5ZXpQq+nXw== 
+                                                                 pwd
                                                                  cd $(System.DefaultWorkingDirectory)
                                                                  sudo mkdir sklnew
                                                                  sudo unzip Blue-Green-Deployment.zip -d $(System.DefaultWorkingDirectory)/sklnew
