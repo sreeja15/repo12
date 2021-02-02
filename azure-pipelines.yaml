@@ -5,13 +5,13 @@ stages:
     - job: Deploy
       displayName: Deploy
     - deployment: VMDeploy
-      displayName: green
+      displayName: blue
       pool:
         vmImage: 'Ubuntu-18.04'
       environment:
         name: demo
         resourceType: VirtualMachine
-        tags: green
+        tags: blue
       strategy:
         runOnce:
           deploy:
@@ -38,13 +38,13 @@ stages:
     - job: Deploy
       displayName: Deploy
     - deployment: VMDeploy
-      displayName: green
+      displayName: blue
       pool:
         vmImage: 'Ubuntu-18.04'
       environment:
         name: demo
         resourceType: VirtualMachine
-        tags: green
+        tags: blue
       strategy:
         runOnce:
           deploy:
