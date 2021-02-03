@@ -28,8 +28,8 @@ stages:
                                                                  sudo su
                                                                  sudo az storage blob download-batch -d $(System.DefaultWorkingDirectory) --pattern Blue-Green-Deployment.zip -s xyz --account-name mydemoaccount0012 --account-key 05JTTJzChEPvn8S3O108Vpzfd2K/HLXz/a2rT2ZEl0S291op04oGEam65XuYgVcYY0vluLI235EqB4EbPSo4Ig== 
                                                                  cd $(System.DefaultWorkingDirectory)
-                                                                 sudo mkdir blue1234
-                                                                 sudo unzip Blue-Green-Deployment.zip -d $(System.DefaultWorkingDirectory)/blue1234
+                                                                 sudo mkdir blue1230
+                                                                 sudo unzip Blue-Green-Deployment.zip -d $(System.DefaultWorkingDirectory)/blue1230
                                                                  echo "Extracting the source code and setting up the application to the Azure VM..."
                                                                  
   - stage: Deploy_TM
@@ -51,7 +51,7 @@ stages:
             steps:
             - script: |
                         
-                        cd $(System.DefaultWorkingDirectory)/blue1234/Blue-Green-Deployment/scripts    
+                        cd $(System.DefaultWorkingDirectory)/blue1230/Blue-Green-Deployment/scripts    
                         sudo chmod +x blue-green-weightage.sh 
                         sudo az login -u akhtar.shaikh@lntinfotech.com -p Newuser@123
                         sudo az account set --subscription 300f9785-e2d2-4e50-916a-832c24a40995
