@@ -5,13 +5,13 @@ stages:
     - job: Deploy
       displayName: Deploy
     - deployment: VMDeploy
-      displayName: blue
+      displayName: green
       pool:
         vmImage: 'Ubuntu-18.04'
       environment:
         name: demo
         resourceType: VirtualMachine
-        tags: blue
+        tags: green
       strategy:
         runOnce:
           deploy:
@@ -28,8 +28,8 @@ stages:
                                                                  sudo su
                                                                  sudo az storage blob download-batch -d $(System.DefaultWorkingDirectory) --pattern Blue-Green-Deployment.zip -s xyz --account-name mydemoaccount0012 --account-key 05JTTJzChEPvn8S3O108Vpzfd2K/HLXz/a2rT2ZEl0S291op04oGEam65XuYgVcYY0vluLI235EqB4EbPSo4Ig== 
                                                                  cd $(System.DefaultWorkingDirectory)
-                                                                 sudo mkdir blueses1234
-                                                                 sudo unzip Blue-Green-Deployment.zip -d $(System.DefaultWorkingDirectory)/blueses1234
+                                                                 sudo mkdir green1234
+                                                                 sudo unzip Blue-Green-Deployment.zip -d $(System.DefaultWorkingDirectory)/green1234
                                                                  echo "Extracting the source code and setting up the application to the Azure VM..."
                                                                  
   - stage: Deploy_TM
@@ -38,20 +38,20 @@ stages:
     - job: Deploy
       displayName: Deploy
     - deployment: VMDeploy
-      displayName: blue
+      displayName: green
       pool:
         vmImage: 'Ubuntu-18.04'
       environment:
         name: demo
         resourceType: VirtualMachine
-        tags: blue
+        tags: green
       strategy:
         runOnce:
           deploy:
             steps:
             - script: |
                         
-                        cd $(System.DefaultWorkingDirectory)/blueses1234/Blue-Green-Deployment/scripts    
+                        cd $(System.DefaultWorkingDirectory)/green1234/Blue-Green-Deployment/scripts    
                         sudo chmod +x blue-green-weightage.sh 
                         sudo az login -u akhtar.shaikh@lntinfotech.com -p Newuser@123
                         sudo az account set --subscription 300f9785-e2d2-4e50-916a-832c24a40995
